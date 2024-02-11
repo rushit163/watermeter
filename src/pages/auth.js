@@ -45,7 +45,7 @@ const Auth = (props) => {
         <label className='mx-3'>Pin</label><input type='password' className='border ' onChange={handlePasswordChange}/>
         </div>
         <div >
-            <button className='bg-blue-600 px-5 py-2 rounded-lg hover:text-white' onClick={handleClick}>Login</button>
+            <button className='bg-blue-600 px-5 py-2 rounded-lg text-white' onClick={handleClick}>Login</button>
         </div>
         </div>
     </div>

@@ -24,7 +24,7 @@ const Dashboard = (props) => {
       labels: dateData.minutly,
       datasets: [
         {
-          label: "Users Gained",
+          label: "water meter",
           data: data?.minutly,
           backgroundColor: [
             "rgba(75, 192, 192, 1)",
@@ -86,34 +86,37 @@ const Dashboard = (props) => {
     
     <div className='h-screen w-screen'>
         <div className='w-screen text-center text-5xl'>User's Page</div>
-    <div className=' grid grid-cols-2 items-center justify-items-center content-center w-screen gap-y-5 mt-11'>
-        <div className='flex flex-col col-span-1 shadow-lg shadow-gray-500/50 px-5 py-3 rounded-lg text-center w-[300px]'>
-            <div>Today's consume</div>
-            <div>{data.minutly[100]}</div>
-        </div>
-        <div className='flex flex-col col-span-1 shadow-lg shadow-gray-500/50 px-5 py-3 rounded-lg text-center w-[300px]'>
-            <div>Balance</div>
-            <div>{data.minutly[100]}</div>
-        </div>
-        <div className='flex flex-col items-center col-span-1 shadow-lg shadow-gray-500/50 px-5 py-3 rounded-lg text-center w-[300px]'>
-            <div>View Usage</div>
-            <div>{data.minutly[100]}</div>
-        </div>
+  
+    <div className='md:flex-row lg:flex-row flex sm:flex-col xs:flex-col flex-col items-center justify-center my-8 gap-5 '>
+      <div className='flex flex-col  shadow-lg shadow-gray-500/50 px-5 py-3 rounded-lg text-center w-[300px]'>
+      <div>Today's consume</div>
+      <div>{data.minutly[100]}</div>
+      </div>
+      <div className='flex flex-col  shadow-lg shadow-gray-500/50 px-5 py-3 rounded-lg text-center w-[300px]'>
+      <div>Balance</div>
+      <div>{data.minutly[100]}</div>
+      </div>
+      <div className='flex flex-col  shadow-lg shadow-gray-500/50 px-5 py-3 rounded-lg text-center w-[300px]'>
+      <div>View Usage</div>
+      <div>{data.minutly[100]}</div>
+      </div>
+
     </div>
     <div className="chart-container px-3 py-2">
-      <div className='flex justify-between'>
-        <div className='text-center w-full'>Line Chart</div> 
+      <div className='flex justify-between items-center'>
+        <div className='text-center text-xl'>Water Usage over time</div> 
         <div className='ml-auto'>
-        <button onClick={handleChange}>change</button>
+        <button onClick={handleChange} className='bg-blue-600 px-5 py-2 rounded-lg text-white'>change</button>
         </div>
       </div>
+      <div className='flex justify-center  items-center '>
+        <div className='w-[80vw]'>
       <Line
         data={chartData}
         options={{
           plugins: {
             title: {
               display: true,
-              text: "Users Gained between 2016-2020"
             },
             legend: {
               display: false
@@ -128,8 +131,10 @@ const Dashboard = (props) => {
         }
         
       }
-        
+        className='w-[80vw]'
       />
+      </div>
+      </div>
     </div>
     </div>
   )
